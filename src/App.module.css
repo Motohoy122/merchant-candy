@@ -1,0 +1,19 @@
+.app {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.container {
+    display: grid;
+    justify-content: stretch;
+    margin-top: 30px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 200px;
+    column-gap: 60px;
+    width: 100%;
+}
+
+.container Checkout {
+    grid-column: 3;
+    grid-row: 1;
+}

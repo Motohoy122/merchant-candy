@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #DCDCDC;
+}
+
+.company h1,h4,p {
+    margin: 0;
+}
+
+.totals {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dueLater {
+    margin-left: 30px;
+}
+
+.totals div h3, p {
+    margin: 0;
+}

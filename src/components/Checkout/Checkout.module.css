@@ -1,0 +1,36 @@
+.container {
+    position: relative;
+    border: 2px solid #DCDCDC;
+    
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-top: 60px;
+    
+    overflow: auto;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    
+}
+
+.total h5 {
+    margin: 10px 0;
+}
+
+.button {
+    
+}
+
+.button Button{
+    width: 100%;
+    background-color: #663399;
+}
+
+.button Button:hover {
+    background-color: #ba55d3;
+}
