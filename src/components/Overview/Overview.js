@@ -9,11 +9,11 @@ const Overview = (props) => {
             </div>
             <div className={styles.totals}>
                 <div>
-                    <h3>$0.00</h3>
+                    <h3>${props.dueTotals.dueNowTotal.toFixed(2)}</h3>
                     <p>Due now</p>
                 </div>
                 <div className={styles.dueLater}>
-                    <h3>$0.00</h3>
+                    <h3>${props.dueTotals.dueLaterTotal.toFixed(2)}</h3>
                     <p>Due later</p>
                 </div>
             </div>

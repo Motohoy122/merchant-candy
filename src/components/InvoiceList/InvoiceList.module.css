@@ -1,4 +1,22 @@
+
 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.invoice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #DCDCDC;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.infornmation {
     display: flex;
     justify-content: space-between;
     align-items: center;
