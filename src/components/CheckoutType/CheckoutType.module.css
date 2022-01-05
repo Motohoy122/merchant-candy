@@ -1,0 +1,21 @@
+.container {
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.buttons Button {
+    width: 100px;
+    text-align: left;
+}
+
+.rightButton {
+    margin-left: 5px;
+}

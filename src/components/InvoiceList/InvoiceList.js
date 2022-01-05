@@ -22,10 +22,9 @@ const InvoiceList = (props) => {
 
     const handleCheck = id => event => {
         const invoiceArr = props.invoices.find(invoice => invoice.id === id);
-        // console.log('ID ', id)
-        // console.log(props.invoices.find(invoice => invoice.id === id).amount)
+        
         setChecked({...checked, [id]: event.target.checked});
-        console.log('Checked', event.target.checked)
+        // console.log('Checked', event.target.checked)
         if(event.target.checked) {
             sum = sum + invoiceArr.amount
             console.log("Sum ", sum);
@@ -34,14 +33,14 @@ const InvoiceList = (props) => {
                     cost: sum,
                     type: 'overdue'
                  });
+                 
             } else {
                 props.onSaveCost({
                     cost: sum,
                     type: 'later'
                  });
-            }
-            
-            
+                 
+            }            
         }
         else if(!event.target.checked) {
             sum = sum - props.invoices.find(invoice => invoice.id === id).amount
@@ -50,18 +49,20 @@ const InvoiceList = (props) => {
                 cost: sum,
                 type: 'overdue'
                 });
+                
             }
             else {
                 props.onSaveCost({
                     cost: sum,
                     type: 'later'
                  });
+                 
             }
         }
-
+        props.onCheckedBoxes({...checked, [id]: event.target.checked});
     }
 
-    // console.log("Checked ", checked);
+    console.log("Checked ", checked);
     
     return (
         <div className={styles.container}>

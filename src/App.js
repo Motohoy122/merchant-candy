@@ -50,6 +50,8 @@ function App() {
     dueLaterTotal: 0,
   });
 
+  const [selectedInvoices, setSelectedInvoices] = useState({})
+
   const addCostHandler = obj => {
     if(obj.type === 'overdue'){
       const total = dueAmounts.dueNowTotal + obj.cost;
@@ -65,17 +67,19 @@ function App() {
         ...dueAmounts, dueLaterTotal: total
       });
     }
-    
-    
   };
 
+  const checkboxHandler = obj => {
+    setSelectedInvoices(obj);
+  }
+ 
   return (
     <div className={styles.app}>
       <Header user={userInfo}/>
       <Overview company={userInfo.company} dueTotals={dueAmounts}/>
       <div className={styles.container}>
-        <InvoiceList className={styles.InvoiceList} invoices={invoices} onSaveCost={addCostHandler}/>
-        <Checkout />
+        <InvoiceList className={styles.InvoiceList} invoices={invoices} onSaveCost={addCostHandler} onCheckedBoxes={checkboxHandler}/>
+        <Checkout dueTotals={dueAmounts} selectedInvoices={selectedInvoices}/>
       </div>
       
     </div>
