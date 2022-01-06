@@ -1,0 +1,29 @@
+.container {
+    position: relative;
+    border: 2px solid #DCDCDC; 
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-top: 60px;
+    padding-bottom: 10px;
+    height: auto;
+
+}
+
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons Button {
+    color: black;
+    border-color: #DCDCDC;
+    text-transform: none;
+}
+
+.buttons Button:hover {
+    border-color: black;
+    background-color: #DCDCDC;
+
+}

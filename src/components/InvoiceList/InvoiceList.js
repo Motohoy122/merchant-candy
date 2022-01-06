@@ -16,15 +16,25 @@ const InvoiceList = (props) => {
         // console.log(selected);
     }
 
-    const handleTotal = (event) => {
-        console.log(event)
+    const handleSelectAll = (event) => {
+        let invoiceObj;
+        setCheckedAll(!checkedAll);
+        if(event.target.checked) {
+            invoiceObj = props.invoices.reduce((o, invoice) => ({ ...o, [invoice.id]: true }), {});
+        }
+        else {
+            invoiceObj = props.invoices.reduce((o, invoice) => ({ ...o, [invoice.id]: false }), {});
+        }
+        // console.log('Select All ', invoiceObj);
+        // setCheckedAll(!checkedAll);
+        setChecked(invoiceObj);
     }
 
     const handleCheck = id => event => {
         const invoiceArr = props.invoices.find(invoice => invoice.id === id);
         
         setChecked({...checked, [id]: event.target.checked});
-        // console.log('Checked', event.target.checked)
+  
         if(event.target.checked) {
             sum = sum + invoiceArr.amount
             console.log("Sum ", sum);
@@ -70,11 +80,10 @@ const InvoiceList = (props) => {
                 component="fieldset"
                 sx={{width:'100%',}}
             >
-            <FormGroup onChange={handleTotal}>
+            <FormGroup >
                 <div className={styles.header}>
                     <h3>Due Now</h3>
                     <FormControlLabel 
-                        onChange={handleChange}
                         control={<Checkbox  
                             sx={{
                                 color: '#fc335b',
@@ -82,6 +91,7 @@ const InvoiceList = (props) => {
                                     color: '#fc335b',
                                 },
                             }}
+                            onChange={handleSelectAll}
                         />}
                         label='Select All'
                     />

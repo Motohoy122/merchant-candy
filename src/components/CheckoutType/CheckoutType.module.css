@@ -1,21 +1,47 @@
 .container {
-    margin-top: 0;
+    
+        position: relative;
+        border: 2px solid #DCDCDC;
+        
+        align-items: center;
+        border-radius: 5px;
+        padding: 10px 10px;
+        margin-top: 60px;
+        padding-bottom: 10px;
+        height: auto;
+    
+    /* margin-top: 0;
     padding-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 15px; */
 }
 
 .buttons {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .buttons Button {
     width: 100px;
     text-align: left;
+    color: black;
+    border-color: #DCDCDC;
+    text-transform: none;
 }
 
-.rightButton {
-    margin-left: 5px;
+.buttons Button:hover {
+    border-color: black;
+    background-color: #DCDCDC;
+}
+
+.cancel Button {
+    color: black;
+    border-color: #DCDCDC;
+    text-transform: none;
+}
+
+.cancel Button:hover {
+    border-color: black;
+    background-color: #DCDCDC;
 }

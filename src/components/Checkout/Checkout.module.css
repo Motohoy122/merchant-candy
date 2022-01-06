@@ -6,24 +6,12 @@
     border-radius: 5px;
     padding: 10px 10px;
     margin-top: 60px;
-    min-height: fit-content;
-    /* overflow: auto; */
-}
-
-.total {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    
-}
-
-.total h5 {
-    margin: 10px 0;
+    padding-bottom: 10px;
+    height: auto;
 }
 
 .button {
-    
+    padding-top: 5px;
 }
 
 .button Button{

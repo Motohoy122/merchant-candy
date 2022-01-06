@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import CheckoutPayment from '../CheckoutPayment/CheckoutPayment';
+import CheckoutTotal from '../CheckoutTotal/CheckoutTotal';
 import styles from './CheckoutType.module.css';
 import Button from '@mui/material/Button';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
@@ -16,17 +17,17 @@ const CheckoutType = (props) => {
     }
 
     return (
-        <div>
+        <div >
         { 
         !eCheck ?
         <div className={styles.container}>
+            <CheckoutTotal checkoutAmount={props.checkoutAmount} />
             <h2>Pay invoice with</h2>
             <div className={styles.buttons}>
                 <Button variant="outlined" startIcon={<AccountBalanceIcon />}>
                     ACH
                 </Button>
-                <Button variant="outlined" className={styles.rightButton} startIcon={<PaymentIcon />}>
-                    <img src={PaymentIcon} alt=''/>
+                <Button variant="outlined" sx={{ml: '10px'}} startIcon={<PaymentIcon />}>
                     Card
                 </Button>
             </div>
@@ -38,18 +39,18 @@ const CheckoutType = (props) => {
                     <img src='' alt=''/>
                     eCheck
                 </Button>
-                <Button variant="outlined" className={styles.rightButton}>
+                <Button variant="outlined" sx={{ml: '10px'}} >
                     Check
                 </Button>
             </div>
-            <div>
+            <div className={styles.cancel}>
                 <Button variant="outlined" onClick={handleCheckout}>Cancel</Button>
   
             </div>
         </div>
         :
         <>
-            <CheckoutPayment onCancelCheckoutPayment={handleCheckout}/>
+            <CheckoutPayment checkoutAmount={props.checkoutAmount} onCancelCheckoutPayment={handleCheckout}/>
         </>
         }
         </div>

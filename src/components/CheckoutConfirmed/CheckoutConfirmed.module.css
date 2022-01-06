@@ -1,0 +1,22 @@
+.container {
+    position: relative;
+    border: 2px solid #DCDCDC; 
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-top: 60px;
+    padding-bottom: 10px;
+    height: auto;
+
+}
+
+.confirmed {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.confirmed p {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}

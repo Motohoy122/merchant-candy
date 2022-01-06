@@ -1,0 +1,9 @@
+.total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total h5 {
+    display: inline;
+    margin: 10px 0;
+}

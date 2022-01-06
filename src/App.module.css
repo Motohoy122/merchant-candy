@@ -18,6 +18,7 @@
 }
 
 .container Checkout {
-    grid-column: 3;
-    grid-row: 1;
+    /* grid-column: 3; */
+    /* grid-row: 1; */
+    height: auto;
 }
