@@ -7,30 +7,43 @@ import Box from '@mui/material/Box';
 
 const Checkout = (props) => {
     const [checkout, setCheckout] = useState(false);
+    // const [invoiceCount, setInvoiceCount] = useState(0);
     const totalCheckout = (props.dueTotals.dueLaterTotal + props.dueTotals.dueNowTotal).toFixed(2);
-    let keys = Object.keys(props.selectedInvoices);
-    // Returns the keys of all selected invoices
-    let activeInvoices = keys.filter(key => {
-        console.log('key', props.selectedInvoices[key])
-        if(props.selectedInvoices[key] === true) {
-            return key;
-        }
-        else {
-            return;
-        }
-    })
-    let invoiceCount = activeInvoices.length;
+    // let keys = Object.keys(props.selectedInvoices);
+    // // Returns the keys of all selected invoices
+    // let activeInvoices = keys.filter(key => {
+    //     console.log('key', props.selectedInvoices[key])
+    //     if(props.selectedInvoices[key] === true) {
+    //         return key;
+    //     }
+    //     else {
+    //         return;
+    //     }
+    // })
+    // let invoiceCount = activeInvoices.length;
 
     const handleCheckout = () => {
-        setCheckout(!checkout);
+        const value = !checkout;
+        if(props.selectedCount > 0) {
+            setCheckout(value);
+            props.onSaveCheckout(value);
+        }
+        else {
+            alert("Please select an invoice to checkout.")
+        }
     }
 
-    console.log('Invoice Count ', invoiceCount)
+    const handleConfirmation = () => {
+        props.confirmedCheckout();
+        // props.selectedCount = 0;
+    }
+
+    console.log('Invoice Count ', props.selectedCount)
     return (
             <div>
             { !checkout ?
                 <div className={styles.container}>
-                    <p>{invoiceCount} invoices selected</p>
+                    <p>{props.selectedCount} invoices selected</p>
                     <CheckoutTotal checkoutAmount={totalCheckout} />
 
                     <Box className={styles.button} textAlign='center'>
@@ -42,7 +55,11 @@ const Checkout = (props) => {
                 </div>
                 :
                 <>
-                    <CheckoutType checkoutAmount={totalCheckout} onCancelCheckout={handleCheckout}/>
+                    <CheckoutType 
+                        checkoutAmount={totalCheckout} 
+                        onCancelCheckout={handleCheckout}
+                        confirmedCheckout={handleConfirmation}
+                    />
                 </>
                 
             }

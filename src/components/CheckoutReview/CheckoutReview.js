@@ -48,6 +48,11 @@ const CheckoutReview = (props) => {
         props.onCancelCheckoutReview();
     }
 
+    const handleConfirmation = () => {
+        props.confirmedCheckout()
+        console.log('confirm checkout')
+    }
+
     const accountNumber = props.accountNum.slice(props.accountNum.length - 4);
 
     return (
@@ -83,9 +88,11 @@ const CheckoutReview = (props) => {
                     label={"I hereby authorize you to debit my account ending in " + accountNumber + " for a one time payment in the amount of $" + props.checkoutAmount + "."} 
                     onChange={handleCheckbox}    
                 />
-                <div className={styles.buttons}>
+                <div className={styles.button}>
                     <Button variant="outlined" onClick={handleCheckout}>Cancel</Button>
-                    <Button variant="contained" onClick={handleReview} >Review</Button>
+                    <div className={styles.review}>
+                        <Button variant="contained" onClick={handleReview} >Review</Button>
+                    </div>
                 </div>
             </div>
             :
@@ -93,6 +100,7 @@ const CheckoutReview = (props) => {
                 <CheckoutConfirmed 
                     accountNum={accountNumber} 
                     checkoutAmount={props.checkoutAmount} 
+                    confirmedCheckout={handleConfirmation}
                     onCancelCheckoutConfirmed={handleCheckout}
                 />
             </>

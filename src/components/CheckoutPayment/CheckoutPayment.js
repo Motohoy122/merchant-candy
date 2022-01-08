@@ -65,6 +65,10 @@ const CheckoutPayment = (props) => {
         props.onCancelCheckoutPayment();
     }
 
+    const handleConfirmation = () => {
+        props.confirmedCheckout()
+    }
+
     return (
         <div>
             {!reviewSelected ?
@@ -118,13 +122,23 @@ const CheckoutPayment = (props) => {
                     <MenuItem value='savings'>Savings</MenuItem>
                     </Select>
                 </FormControl>  
-                <div className={styles.buttons}>
-                    <Button variant="outlined" className={styles.cancel} onClick={handleCheckout}>Cancel</Button>
-                    <Button variant="outlined" onClick={handleReview} >Review</Button>
+                <div className={styles.button}>
+                    <div>
+                        <Button variant="outlined" className={styles.cancel} onClick={handleCheckout}>Cancel</Button>
+                    </div>
+                    <div className={styles.review}>
+                        <Button variant="outlined" onClick={handleReview} >Review</Button>
+                    </div>
                 </div>
             </div> :
             <>
-                <CheckoutReview routingNum={routingNumber} accountNum={accountNumber} checkoutAmount={props.checkoutAmount} onCancelCheckoutReview={handleCheckout}/>
+                <CheckoutReview 
+                    routingNum={routingNumber} 
+                    accountNum={accountNumber} 
+                    checkoutAmount={props.checkoutAmount} 
+                    onCancelCheckoutReview={handleCheckout} 
+                    confirmedCheckout={handleConfirmation}
+                />
             </>
             }
             

@@ -16,6 +16,10 @@ const CheckoutType = (props) => {
         props.onCancelCheckout();
     }
 
+    const handleConfirmation = () => {
+        props.confirmedCheckout()
+    }
+
     return (
         <div >
         { 
@@ -50,7 +54,11 @@ const CheckoutType = (props) => {
         </div>
         :
         <>
-            <CheckoutPayment checkoutAmount={props.checkoutAmount} onCancelCheckoutPayment={handleCheckout}/>
+            <CheckoutPayment 
+                checkoutAmount={props.checkoutAmount} 
+                onCancelCheckoutPayment={handleCheckout}
+                confirmedCheckout={handleConfirmation}
+            />
         </>
         }
         </div>

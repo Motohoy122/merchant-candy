@@ -13,7 +13,7 @@ function App() {
     company: 'Batney Co.'
   }
 
-  const invoices = [
+  const [invoices, setInvoices] = useState([
     {
       id: 1057,
       dueDate: new Date(2021, 11, 14),
@@ -44,13 +44,16 @@ function App() {
       amount: 226.29,
 
     },
-  ]
+  ]);
   const [dueAmounts, setDueAmounts] = useState({
     dueNowTotal: 0,
     dueLaterTotal: 0,
   });
 
-  const [selectedInvoices, setSelectedInvoices] = useState({})
+  const [selectedInvoices, setSelectedInvoices] = useState({});
+  const [invoiceCount, setInvoiceCount] = useState(0);
+  const [checkout, setCheckout] = useState(false);
+  const [completedCheckout, setCompletedCheckout] = useState(false);
 
   const addCostHandler = obj => {
     if(obj.type === 'overdue'){
@@ -58,7 +61,7 @@ function App() {
       setDueAmounts({
         ...dueAmounts, dueNowTotal: total
       });
-      console.log('Total ', total);
+      
       
     } 
     else if(obj.type === 'later') {
@@ -71,17 +74,89 @@ function App() {
 
   const checkboxHandler = obj => {
     setSelectedInvoices(obj);
+
+    const keys = Object.keys(obj);
+    // Returns the keys of all selected invoices
+    const activeInvoices = keys.filter(key => {
+        console.log('key', obj[key])
+        if(obj[key] === true) {
+            return key;
+        }
+        else {
+            return;
+        }
+    })
+    setInvoiceCount(activeInvoices.length);
   }
+
+  const handleCheckout = value => {
+    setCheckout(value);
+    setCompletedCheckout(false)
+    if(value === false) {
+      checkboxHandler({})
+      setDueAmounts({
+        dueNowTotal: 0,
+        dueLaterTotal: 0,
+      })
+    }
+  }
+
+  console.log('Selected Invoices from App.js ', selectedInvoices);
+
+  const handleConfirmation = () => {
+    // setSelectedInvoices({})
+    setCompletedCheckout(true)
+    setInvoices(invoices.filter( invoice => {
+      console.log('Invoice ', selectedInvoices[invoice.id]  !== true);
+      if (selectedInvoices[invoice.id] !== true) {
+        return invoice
+      } else {
+        return
+      }
+      
+      })
+    )
+    // setInvoiceCount(0);
+    // setDueAmounts({
+    //   ...dueAmounts, dueNowTotal: 0, dueLaterTotal: 0,
+    // });
+  }
+
+  const changeConfirmationHandler = () => {
+    setCompletedCheckout(false);
+    checkboxHandler({})
+    setDueAmounts({
+      dueNowTotal: 0,
+      dueLaterTotal: 0,
+    })
+    // setCheckout(false)
+  }
+  
+  console.log('Invoices ', invoices);
+  // console.log('Selected Invoices ', total);
  
   return (
     <div className={styles.app}>
       <Header user={userInfo}/>
       <Overview company={userInfo.company} dueTotals={dueAmounts}/>
+      {/* <button onClick={handleConfirmation}>Test</button> */}
       <div className={styles.container}>
-        <InvoiceList className={styles.InvoiceList} invoices={invoices} onSaveCost={addCostHandler} onCheckedBoxes={checkboxHandler}/>
-        <Checkout dueTotals={dueAmounts} selectedInvoices={selectedInvoices}/>
+        <InvoiceList 
+          className={styles.InvoiceList} 
+          invoices={invoices} onSaveCost={addCostHandler} 
+          onCheckedBoxes={checkboxHandler} 
+          checkout={checkout}
+          confirmedCheckout={completedCheckout}
+          onChangeConfirmCheckout={changeConfirmationHandler}
+        />
+        <Checkout 
+          dueTotals={dueAmounts} 
+          selectedCount={invoiceCount}
+          onSaveCheckout={handleCheckout}
+          confirmedCheckout={handleConfirmation}
+        />
+        
       </div>
-      
     </div>
   );
 }

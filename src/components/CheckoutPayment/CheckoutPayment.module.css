@@ -10,19 +10,34 @@
 
 }
 
-.buttons {
+.container h2 {
+    border-top: 2px solid #DCDCDC;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.button {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
 }
 
-.buttons Button {
+.button Button {
     color: black;
     text-transform: none;
     border-color: #DCDCDC;
 }
 
-.buttons Button:hover {
+.button Button:hover {
     border-color: black;
     background-color: #DCDCDC;
+}
+
+.review Button{
+    color: #ffffff;
+    background-color: #663399;
+}
+
+.review Button:hover {
+    background-color: #ba55d3;
 }

@@ -9,7 +9,9 @@ const CheckoutConfirmed = (props) => {
     const [completeCheckout, setCompleteCheckout] = useState(false);
     
     const handleCompleteCheckout = () => {
+        
         props.onCancelCheckoutConfirmed();
+        props.confirmedCheckout();
     }
 
     return (

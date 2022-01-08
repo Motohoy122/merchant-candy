@@ -16,6 +16,10 @@
     width: 100%;
 }
 
+.invoiceDesc {
+    padding-left: 10px;
+}
+
 .infornmation {
     display: flex;
     justify-content: space-between;
