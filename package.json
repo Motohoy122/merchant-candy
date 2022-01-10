@@ -2,7 +2,7 @@
   "name": "merchant-candy",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Motohoy122/merchant-candy",
+  "homepage": "http://motohoy122.github.io/merchant-candy",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
