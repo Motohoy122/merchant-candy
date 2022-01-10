@@ -94,20 +94,17 @@ function App() {
     setCompletedCheckout(false)
     if(value === false) {
       checkboxHandler({})
-      setDueAmounts({
-        dueNowTotal: 0,
-        dueLaterTotal: 0,
-      })
+      
     }
   }
 
-  console.log('Selected Invoices from App.js ', selectedInvoices);
+  // console.log('Selected Invoices from App.js ', selectedInvoices);
 
   const handleConfirmation = () => {
     // setSelectedInvoices({})
     setCompletedCheckout(true)
     setInvoices(invoices.filter( invoice => {
-      console.log('Invoice ', selectedInvoices[invoice.id]  !== true);
+      // console.log('Invoice ', selectedInvoices[invoice.id]  !== true);
       if (selectedInvoices[invoice.id] !== true) {
         return invoice
       } else {
@@ -132,7 +129,7 @@ function App() {
     // setCheckout(false)
   }
   
-  console.log('Invoices ', invoices);
+  // console.log('Invoices ', invoices);
   // console.log('Selected Invoices ', total);
  
   return (
