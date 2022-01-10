@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Motohoy122/merchant-candy/static/css/main.6be6cbcb.css",
-    "main.js": "/Motohoy122/merchant-candy/static/js/main.361ec2dd.js",
-    "static/js/787.948c8f5b.chunk.js": "/Motohoy122/merchant-candy/static/js/787.948c8f5b.chunk.js",
-    "index.html": "/Motohoy122/merchant-candy/index.html",
-    "main.6be6cbcb.css.map": "/Motohoy122/merchant-candy/static/css/main.6be6cbcb.css.map",
-    "main.361ec2dd.js.map": "/Motohoy122/merchant-candy/static/js/main.361ec2dd.js.map",
-    "787.948c8f5b.chunk.js.map": "/Motohoy122/merchant-candy/static/js/787.948c8f5b.chunk.js.map"
+    "main.css": "/merchant-candy/static/css/main.6be6cbcb.css",
+    "main.js": "/merchant-candy/static/js/main.c1f42a29.js",
+    "static/js/787.948c8f5b.chunk.js": "/merchant-candy/static/js/787.948c8f5b.chunk.js",
+    "index.html": "/merchant-candy/index.html",
+    "main.6be6cbcb.css.map": "/merchant-candy/static/css/main.6be6cbcb.css.map",
+    "main.c1f42a29.js.map": "/merchant-candy/static/js/main.c1f42a29.js.map",
+    "787.948c8f5b.chunk.js.map": "/merchant-candy/static/js/787.948c8f5b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6be6cbcb.css",
-    "static/js/main.361ec2dd.js"
+    "static/js/main.c1f42a29.js"
   ]
 }
